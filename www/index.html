@@ -166,7 +166,8 @@ function loadPosts() {
     }
 
     // リスナーを設定
-    postsListener = postsRef.on('child_added', function(snapshot) {
+    postsListener = postsRef.on('value', function(snapshot) {
+
         const posts = [];
         snapshot.forEach(function(childSnapshot) {
             posts.push({
